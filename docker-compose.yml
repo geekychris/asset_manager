@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: artifact-manager
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+      - STORAGE_LOCATION=/app/images
+    volumes:
+      - ./images:/app/images
+    restart: unless-stopped
+    
+  # Optionally, you can add a database service
+  # db:
+  #   image: postgres:14-alpine
+  #   container_name: artifact-db
+  #   environment:
+  #     - POSTGRES_USER=postgres
+  #     - POSTGRES_PASSWORD=postgres
+  #     - POSTGRES_DB=artifactdb
+  #   volumes:
+  #     - postgres-data:/var/lib/postgresql/data
+  #   ports:
+  #     - "5432:5432"
+  #   restart: unless-stopped
+
+# Uncomment if using PostgreSQL
+# volumes:
+#   postgres-data:
+
