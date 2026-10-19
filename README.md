@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/logo.png" alt="Asset Manager logo" width="180">
+</p>
+
 # Artifact Manager
 
 ## Overview
